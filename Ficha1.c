@@ -164,7 +164,7 @@ int main(){
 }
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-3.3.
+3.3.a)
 int main(){
     int a;
     int x = 0;
@@ -195,32 +195,149 @@ int main(){
 }
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*/
- 
+3.3.b)
 int main(){
     int a;
-    int x = 0;
+    int cont = 1;
     printf("Insira a altura do triangulo: ");
     scanf("%d", &a);
-    int cont = a-1;
-    for (int i = 0; i < a; i++){
-        for (int j = 0; j < cont; j++){
-            putchar(' ');
+
+    for(int i = 0; i < a; i++){        
+        for (int j = i; j < a-1; j++){
+            printf(" ");
         }
-        for (int l = 0; l < (a-cont); l++){
-            putchar('#');
+        for (int h = 0; h < cont; h++){
+            printf("#");
         }
-        for (int k = 0; k < (a-cont); k++){
-            putchar('#');
+        for (int l = 0; l < cont-1; l++){
+            printf("#");
         }
-        for (int m = 0; m < cont; m++){
-            putchar(' ');
-        }
-        cont--;
-        putchar('\n');
+        cont++;
+        printf("\n");
     }
     
+    return 0;
+}
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.4.
+int main(){
+    int r;
+    printf("Insira o raio do círculo: ");
+    scanf("%d", &r);
+    for(int i = 0; i <= 2*r; i++){
+        for(int j = 0; j <= 2*r; j++){
+            if((i-r)*(i-r) + (j-r)*(j-r) <= r*r){
+                printf("#");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+                    //////////////////////////////////
+                    //                              //
+                    //          MINI-TESTE 1        //
+                    //                              //
+                    //////////////////////////////////
+
+Considere as seguintes funções:
+
+int fizz(int n) {
+    return ((n + 4) % 43) == 0;
+}
+
+int buzz(int n) {
+    return ((n + 6) % 52) == 0;
+}
+
+void fizzbuzz(int n) {
+    if (fizz(n) && buzz(n))
+        printf("FizzBuzz\n");
+    else if (fizz(n))
+        printf("Fizz\n");
+    else if (buzz(n))
+        printf("Buzz\n");
+    else
+        printf("%d\n", n);
+}
+
+Considere ainda uma função void fizzbuzz_range(int from, int to) 
+que replica a funcionalidade da função fizzbuzz para a sequência de 
+valores entre from (inclusive) e to (exclusive).
+
+Se esta função for invocada da seguinte forma:
+
+fizzbuzz_range(467, 5467);
+
+Perguntas:
+
+1. Quantos "Fizz" são impressos na totalidade?
+
+2. Quantos números são precisos para os ter os três tipos de impressões?
+
+Resolução:
+
+void fizzbuzz_fizz(int from, int to){
+    int count = 0;
+    for (int n = from; n < to; n++) {
+        if (fizz(n) && buzz(n));
+        else if (fizz(n))
+            count++;
+        else if (buzz(n));
+        else;
+    }
+        printf("Number of Fizz: %d\n", count);
+}
+
+void fizzbuzz_all(int from, int to){
+    int fizzFound = 0;
+    int buzzFound = 0;
+    int fizzBuzzFound = 0;
+    int n = 467;
+    int count = 0;
+    
+    while (!fizzFound || !buzzFound || !fizzBuzzFound) {
+        if (fizz(n) && buzz(n)) {
+            fizzBuzzFound = 1;
+        } else if (fizz(n)) {
+            fizzFound = 1;
+        } else if (buzz(n)) {
+            buzzFound = 1;
+        }
+        else count++;
+        n++;
+    }
+    printf("Number of numbers printed: %d\n", count);
+    printf("Number of positions passed: %d\n", n - 467);
+}
+
+int main(){
+    fizzbuzz_fizz(467, 5467);
+    fizzbuzz_all(467, 5467);
+    return 0;
+}
+
+*/
+
+int main(){
+    int r;
+    printf("Insira o raio do círculo: ");
+    scanf("%d", &r);
+    for(int i = 0; i <= 2*r; i++){
+        for(int j = 0; j <= 2*r; j++){
+            if((i-r)*(i-r) + (j-r)*(j-r) <= r*r){
+                printf("#");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
     return 0;
 }
