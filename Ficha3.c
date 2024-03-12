@@ -97,12 +97,27 @@ void quadrados (int q[], int N){
 
 //8.
 void pascal (int v[], int N){
-    for (int i = 1; i <= N; i++){
-        
+    int temp[N];
+    for (int i = 0; i < N; i++){
+        temp[i] = 0;
     }
-    
+    temp[0] = 1;
+    for (int i = 0; i < N; i++){
+        for (int j = i; j > 0; j--){
+            temp[j] = temp[j] + temp[j-1];
+        }
+        for (int k = 0; k < N; k++){
+            v[k] = temp[k];
+        }
+    }
+    for (int i = 0; i < N; i++){
+        printf ("%d ", v[i]);
+    }
+    printf ("\n");
 }
 
 int main (){
-
+    int v[5];
+    pascal (v, 5);
+    return 0;
 }
